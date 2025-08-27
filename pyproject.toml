@@ -11,7 +11,7 @@ include = [
 
 [project]
 name = "huggingface-daily-paper-mcp"
-version = "0.1.1"
+version = "0.1.2"
 description = "A MCP server for fetching HuggingFace daily papers"
 authors = [
     { name = "huangxinping", email = "monor.huang@gmail.com" }

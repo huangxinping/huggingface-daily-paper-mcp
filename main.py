@@ -119,10 +119,12 @@ async def handle_call_tool(
                          "\n".join([
                              f"Title: {paper['title']}\n"
                              f"Authors: {', '.join(paper['authors'])}\n" 
-                             f"Abstract: {paper['abstract'][:200]}...\n"
+                             f"Abstract: {paper['abstract']}\n"
                              f"URL: {paper['url']}\n"
                              f"PDF: {paper['pdf_url']}\n"
                              f"Tags: {', '.join(paper['tags'])}\n"
+                             f"Votes: {paper['votes']}\n"
+                             f"Submitted by: {paper['submitted_by']}\n"
                              + "-" * 50
                              for paper in papers
                          ])
@@ -148,7 +150,7 @@ async def handle_call_tool(
                          "\n".join([
                              f"Title: {paper['title']}\n"
                              f"Authors: {', '.join(paper['authors'])}\n"
-                             f"Abstract: {paper['abstract'][:200]}...\n" 
+                             f"Abstract: {paper['abstract']}\n" 
                              f"URL: {paper['url']}\n"
                              f"PDF: {paper['pdf_url']}\n"
                              f"Tags: {', '.join(paper['tags'])}\n"
@@ -177,7 +179,7 @@ async def handle_call_tool(
                          "\n".join([
                              f"Title: {paper['title']}\n"
                              f"Authors: {', '.join(paper['authors'])}\n"
-                             f"Abstract: {paper['abstract'][:200]}...\n"
+                             f"Abstract: {paper['abstract']}\n"
                              f"URL: {paper['url']}\n" 
                              f"PDF: {paper['pdf_url']}\n"
                              f"Tags: {', '.join(paper['tags'])}\n"
@@ -209,7 +211,7 @@ async def main():
             write_stream, 
             InitializationOptions(
                 server_name="huggingface-daily-papers",
-                server_version="0.1.1",
+                server_version="0.1.2",
                 capabilities=server.get_capabilities(
                     notification_options=NotificationOptions(),
                     experimental_capabilities={},

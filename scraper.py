@@ -121,52 +121,104 @@ class HuggingFacePapersScraper:
             
             # 提取标签
             tags = []
+            # 查找标签相关的元素
+            tag_elements = card.find_all('span', class_=lambda x: x and ('tag' in x.lower() or 'badge' in x.lower()))
+            for elem in tag_elements:
+                tag_text = elem.get_text(strip=True)
+                if tag_text and len(tag_text) < 50:  # 过滤掉太长的文本
+                    tags.append(tag_text)
+            
+            # 备用方案：查找小标签样式的文本
+            if not tags:
+                small_elements = card.find_all(['span', 'div'], class_=lambda x: x and any(cls in x.lower() for cls in ['text-xs', 'text-sm', 'small', 'chip']))
+                for elem in small_elements:
+                    tag_text = elem.get_text(strip=True)
+                    if tag_text and 5 <= len(tag_text) <= 30 and not any(skip in tag_text.lower() for skip in ['author', 'submit', 'vote', 'view', 'download']):
+                        tags.append(tag_text)
             
             # 提取PDF链接（需要从详情页获取）
             pdf_link = ""
             
             # 提取点赞数
             vote_count = 0
-            vote_elements = card.find_all('div', class_='leading-none')
-            for elem in vote_elements:
-                text = elem.get_text(strip=True)
-                if text.isdigit():
-                    vote_count = int(text)
+            # 尝试多种方式查找投票数
+            vote_selectors = [
+                'div[class*="leading-none"]',
+                'div[class*="vote"]',
+                'span[class*="vote"]',
+                'button[class*="vote"]',
+                'div[class*="like"]'
+            ]
+            
+            for selector in vote_selectors:
+                vote_elements = card.select(selector)
+                for elem in vote_elements:
+                    text = elem.get_text(strip=True)
+                    if text.isdigit() and int(text) >= 0:
+                        vote_count = int(text)
+                        break
+                if vote_count > 0:
                     break
+            
+            # 备用方案：在所有数字文本中查找可能的投票数
+            if vote_count == 0:
+                all_texts = list(card.stripped_strings)
+                for text in all_texts:
+                    if text.isdigit() and 0 <= int(text) <= 1000:  # 合理的投票数范围
+                        vote_count = int(text)
+                        break
             
             # 提取提交者信息
             submitted_by = ""
-            # 查找提交者信息的更准确方法
-            submit_div = card.find('div', string=lambda text: text and 'Submitted by' in text)
-            if submit_div:
-                # 在同一div中查找下一个文本或图片的alt属性
-                next_sibling = submit_div.next_sibling
-                while next_sibling:
-                    if hasattr(next_sibling, 'get_text'):
-                        text = next_sibling.get_text(strip=True)
-                        if text and text != 'Submitted by':
-                            submitted_by = text
-                            break
-                    elif hasattr(next_sibling, 'string') and next_sibling.string:
-                        text = next_sibling.string.strip()
-                        if text and text != 'Submitted by':
-                            submitted_by = text
-                            break
-                    next_sibling = next_sibling.next_sibling
             
-            # 备用方法：从调试信息中看到提交者信息在特定结构中
+            # 方法1：查找包含"Submitted by"文本的元素
+            submit_elements = card.find_all(string=lambda text: text and 'Submitted by' in text)
+            for submit_text in submit_elements:
+                parent = submit_text.parent
+                if parent:
+                    # 在父元素中查找用户链接或用户名
+                    user_links = parent.find_all('a', href=True)
+                    for link in user_links:
+                        href = link.get('href', '')
+                        if '/user/' in href or href.startswith('/') and not href.startswith('/papers/'):
+                            submitted_by = link.get_text(strip=True)
+                            break
+                    
+                    # 如果没找到链接，尝试从文本中提取
+                    if not submitted_by:
+                        parent_text = parent.get_text()
+                        if 'Submitted by' in parent_text:
+                            # 提取"Submitted by"后面的文本
+                            parts = parent_text.split('Submitted by')
+                            if len(parts) > 1:
+                                after_text = parts[1].strip()
+                                # 取第一个单词或短语作为用户名
+                                username = after_text.split()[0] if after_text.split() else ""
+                                if username and len(username) <= 30:
+                                    submitted_by = username
+                if submitted_by:
+                    break
+            
+            # 方法2：查找用户相关的链接
             if not submitted_by:
-                # 查找包含 "Submitted by" 的父元素，然后查找用户名
-                for elem in card.find_all(string=True):
-                    if 'Submitted by' in elem:
-                        parent = elem.parent
-                        if parent:
-                            # 查找父元素中的所有文本
-                            all_texts = list(parent.stripped_strings)
-                            for i, text in enumerate(all_texts):
-                                if 'Submitted by' in text and i + 1 < len(all_texts):
-                                    submitted_by = all_texts[i + 1]
-                                    break
+                user_links = card.find_all('a', href=True)
+                for link in user_links:
+                    href = link.get('href', '')
+                    if '/user/' in href:
+                        submitted_by = link.get_text(strip=True)
+                        break
+            
+            # 方法3：查找可能的用户名模式
+            if not submitted_by:
+                all_links = card.find_all('a')
+                for link in all_links:
+                    text = link.get_text(strip=True)
+                    href = link.get('href', '')
+                    # 如果链接文本看起来像用户名且不是论文链接
+                    if (text and 3 <= len(text) <= 25 and 
+                        not any(skip in text.lower() for skip in ['view', 'paper', 'download', 'authors', 'pdf']) and
+                        not href.startswith('/papers/')):
+                        submitted_by = text
                         break
             
             return {

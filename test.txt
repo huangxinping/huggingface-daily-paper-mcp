@@ -1,0 +1,162 @@
+"Today's Papers (2025-08-27) - Found 21 papers:
+
+Title: CMPhysBench: A Benchmark for Evaluating Large Language Models in
+  Condensed Matter Physics
+Authors: Weida Wang, Dongchen Huang, Jiatong Li, Tengchao Yang, Ziyang Zheng, Di Zhang, Dong Han, Benteng Chen, Binzhao Luo, Zhiyu Liu, Kunling Liu, Zhiyuan Gao, Shiqi Geng, Wei Ma, Jiaming Su, Xin Li, Shuchen Pu, Yuhan Shui, Qianjia Cheng, Zhihao Dou, Dongfei Cui, Changyong He, Jin Zeng, Zeke Xie, Mao Su, Dongzhan Zhou, Yuqiang Li, Wanli Ouyang, Yunqi Cai, Xi Dai, Shufei Zhang, Lei Bai, Jinguang Cheng, Zhong Fang, Hongming Weng
+Abstract: CMPhysBench evaluates LLMs in condensed matter physics using calculation problems and a new SEED score for partial credit assessment, revealing significant capability gaps....
+URL: https://huggingface.co/papers/2508.18124
+PDF: https://arxiv.org/pdf/2508.18124.pdf
+Tags: 
+--------------------------------------------------
+Title: VibeVoice Technical Report
+Authors: Zhiliang Peng, Jianwei Yu, Wenhui Wang, Yaoyao Chang, Yutao Sun, Li Dong, Yi Zhu, Weijiang Xu, Hangbo Bao, Zehua Wang, Shaohan Huang, Yan Xia, Furu Wei
+Abstract: This report presents VibeVoice, a novel model designed to synthesizelong-form speechwith multiple speakers by employingnext-token diffusion,
+which is a unified method for modeling continuous data by a...
+URL: https://huggingface.co/papers/2508.19205
+PDF: https://arxiv.org/pdf/2508.19205.pdf
+Tags: 
+--------------------------------------------------
+Title: TreePO: Bridging the Gap of Policy Optimization and Efficacy and
+  Inference Efficiency with Heuristic Tree-based Modeling
+Authors: Yizhi Li, Qingshui Gu, Zhoufutu Wen, Ziniu Li, Tianshun Xing, Shuyue Guo, Tianyu Zheng, Xin Zhou, Xingwei Qu, Wangchunshu Zhou, Zheng Zhang, Wei Shen, Qian Liu, Chenghua Lin, Jian Yang, Ge Zhang, Wenhao Huang
+Abstract: TreePO, a self-guided rollout algorithm for sequence generation, reduces computational cost and enhances exploration diversity in reinforcement learning for large language models....
+URL: https://huggingface.co/papers/2508.17445
+PDF: https://arxiv.org/pdf/2508.17445.pdf
+Tags: 
+--------------------------------------------------
+Title: Spacer: Towards Engineered Scientific Inspiration
+Authors: Minhyeong Lee, Suyoung Hwang, Seunghyun Moon, Geonho Nah, Donghyun Koh, Youngjun Cho, Johyun Park, Hojin Yoo, Jiho Park, Haneul Choi, Sungbin Moon, Taehoon Hwang, Seungwon Kim, Jaeyeong Kim, Seongjun Kim, Juneau Jung
+Abstract: Spacer, a scientific discovery system, uses deliberate decontextualization to generate creative and factually grounded scientific concepts from keyword sets, achieving high accuracy and similarity to ...
+URL: https://huggingface.co/papers/2508.17661
+PDF: https://arxiv.org/pdf/2508.17661.pdf
+Tags: 
+--------------------------------------------------
+Title: OmniHuman-1.5: Instilling an Active Mind in Avatars via Cognitive
+  Simulation
+Authors: Jianwen Jiang, Weihong Zeng, Zerong Zheng, Jiaqi Yang, Chao Liang, Wang Liao, Han Liang, Yuan Zhang, Mingyuan Gao
+Abstract: A framework using Multimodal Large Language Models and a specialized Multimodal DiT architecture generates semantically coherent and expressive character animations from multimodal inputs....
+URL: https://huggingface.co/papers/2508.19209
+PDF: https://arxiv.org/pdf/2508.19209.pdf
+Tags: 
+--------------------------------------------------
+Title: UltraMemV2: Memory Networks Scaling to 120B Parameters with Superior
+  Long-Context Learning
+Authors: Zihao Huang, Yu Bao, Qiyang Min, Siyan Chen, Ran Guo, Hongzhi Huang, Defa Zhu, Yutao Zeng, Banggu Wu, Xun Zhou, Siyuan Qiao
+Abstract: Abstract not available in listing page...
+URL: https://huggingface.co/papers/2508.18756
+PDF: https://arxiv.org/pdf/2508.18756.pdf
+Tags: 
+--------------------------------------------------
+Title: VoxHammer: Training-Free Precise and Coherent 3D Editing in Native 3D
+  Space
+Authors: Lin Li, Zehuan Huang, Haoran Feng, Gengxiong Zhuang, Rui Chen, Chunchao Guo, Lu Sheng
+Abstract: VoxHammer is a training-free method that performs precise and coherent 3D editing in latent space, ensuring consistency in preserved regions and high-quality overall results....
+URL: https://huggingface.co/papers/2508.19247
+PDF: https://arxiv.org/pdf/2508.19247.pdf
+Tags: 
+--------------------------------------------------
+Title: Pixie: Fast and Generalizable Supervised Learning of 3D Physics from
+  Pixels
+Authors: Long Le, Ryan Lucas, Chen Wang, Chuhao Chen, Dinesh Jayaraman, Eric Eaton, Lingjie Liu
+Abstract: PIXIE, a neural network method, predicts physical properties of 3D scenes from visual features, enabling fast and realistic physics simulation using supervised learning and pretrained visual features....
+URL: https://huggingface.co/papers/2508.17437
+PDF: https://arxiv.org/pdf/2508.17437.pdf
+Tags: 
+--------------------------------------------------
+Title: Autoregressive Universal Video Segmentation Model
+Authors: Miran Heo, Sukjun Hwang, Min-Hung Chen, Yu-Chiang Frank Wang, Albert Gu, Seon Joo Kim, Ryo Hachiuma
+Abstract: AUSM, an autoregressive universal segmentation model, unifies prompted and unprompted video segmentation by treating it as sequential mask prediction, achieving superior performance and faster trainin...
+URL: https://huggingface.co/papers/2508.19242
+PDF: https://arxiv.org/pdf/2508.19242.pdf
+Tags: 
+--------------------------------------------------
+Title: Wan-S2V: Audio-Driven Cinematic Video Generation
+Authors: Xin Gao, Li Hu, Siqi Hu, Mingyang Huang, Chaonan Ji, Dechao Meng, Jinwei Qi, Penchong Qiao, Zhen Shen, Yafei Song, Ke Sun, Linrui Tian, Guangyuan Wang, Qi Wang, Zhongjian Wang, Jiayu Xiao, Sheng Xu, Bang Zhang, Peng Zhang, Xindi Zhang, Zhe Zhang, Jingren Zhou, Lian Zhuo
+Abstract: Abstract not available in listing page...
+URL: https://huggingface.co/papers/2508.18621
+PDF: https://arxiv.org/pdf/2508.18621.pdf
+Tags: 
+--------------------------------------------------
+Title: CineScale: Free Lunch in High-Resolution Cinematic Visual Generation
+Authors: Haonan Qiu, Ning Yu, Ziqi Huang, Paul Debevec, Ziwei Liu
+Abstract: CineScale is a novel inference paradigm that enables high-resolution visual generation for both images and videos without extensive fine-tuning, addressing issues of repetitive patterns and high-frequ...
+URL: https://huggingface.co/papers/2508.15774
+PDF: https://arxiv.org/pdf/2508.15774.pdf
+Tags: 
+--------------------------------------------------
+Title: ReportBench: Evaluating Deep Research Agents via Academic Survey Tasks
+Authors: Minghao Li, Ying Zeng, Zhihao Cheng, Cong Ma, Kai Jia
+Abstract: We introduce ReportBench, the first systematic benchmark for evaluating research reports generated by Deep Research agents. By leveraging expert-authored survey papers from arXiv as gold standards, Re...
+URL: https://huggingface.co/papers/2508.15804
+PDF: https://arxiv.org/pdf/2508.15804.pdf
+Tags: 
+--------------------------------------------------
+Title: ThinkDial: An Open Recipe for Controlling Reasoning Effort in Large
+  Language Models
+Authors: Qianyu He, Siyu Yuan, Xuefeng Li, Mingxuan Wang, Jiangjie Chen
+Abstract: ThinkDial is an open-source framework that implements controllable reasoning in large language models through discrete operational modes, achieving performance while reducing computational effort....
+URL: https://huggingface.co/papers/2508.18773
+PDF: https://arxiv.org/pdf/2508.18773.pdf
+Tags: 
+--------------------------------------------------
+Title: FastMesh:Efficient Artistic Mesh Generation via Component Decoupling
+Authors: Jeonghwan Kim, Yushi Lan, Armando Fortes, Yongwei Chen, Xingang Pan
+Abstract: A framework for efficient artistic mesh generation reduces redundancy by separating vertex and face generation, using an autoregressive model for vertices and a bidirectional transformer for faces, an...
+URL: https://huggingface.co/papers/2508.19188
+PDF: https://arxiv.org/pdf/2508.19188.pdf
+Tags: 
+--------------------------------------------------
+Title: MovieCORE: COgnitive REasoning in Movies
+Authors: Gueter Josmy Faure, Min-Hung Chen, Jia-Fong Yeh, Ying Cheng, Hung-Ting Su, Yung-Hao Tang, Shang-Hong Lai, Winston H. Hsu
+Abstract: MovieCORE is a video question answering dataset that uses multiple large language models to generate deep cognitive questions, and introduces an agentic enhancement module to improve VQA model perform...
+URL: https://huggingface.co/papers/2508.19026
+PDF: https://arxiv.org/pdf/2508.19026.pdf
+Tags: 
+--------------------------------------------------
+Title: Optimal Sparsity of Mixture-of-Experts Language Models for Reasoning
+  Tasks
+Authors: Taishi Nakamura, Satoki Ishikawa, Masaki Kawamura, Takumi Okamoto, Daisuke Nohara, Jun Suzuki, Rio Yokota
+Abstract: MoE models introduce sparsity that affects memorization and reasoning capabilities differently in large language models, with reasoning performance potentially regressing despite increased parameters....
+URL: https://huggingface.co/papers/2508.18672
+PDF: https://arxiv.org/pdf/2508.18672.pdf
+Tags: 
+--------------------------------------------------
+Title: Training Language Model Agents to Find Vulnerabilities with CTF-Dojo
+Authors: Terry Yue Zhuo, Dingmin Wang, Hantian Ding, Varun Kumar, Zijian Wang
+Abstract: CTF-Dojo, a large-scale executable runtime with 658 CTF challenges, enables rapid training of LLM-based agents with verifiable feedback, achieving state-of-the-art performance in competitive benchmark...
+URL: https://huggingface.co/papers/2508.18370
+PDF: https://arxiv.org/pdf/2508.18370.pdf
+Tags: 
+--------------------------------------------------
+Title: QueryBandits for Hallucination Mitigation: Exploiting Semantic Features
+  for No-Regret Rewriting
+Authors: Nicole Cho, William Watson, Alec Koppel, Sumitra Ganesh, Manuela Veloso
+Abstract: QueryBandits, a bandit framework, effectively mitigates hallucinations in LLMs by proactively rewriting queries based on linguistic features, outperforming static prompting strategies....
+URL: https://huggingface.co/papers/2508.16697
+PDF: https://arxiv.org/pdf/2508.16697.pdf
+Tags: 
+--------------------------------------------------
+Title: ObjFiller-3D: Consistent Multi-view 3D Inpainting via Video Diffusion
+  Models
+Authors: Haitang Feng, Jie Liu, Jie Tang, Gangshan Wu, Beiqi Chen, Jianhuang Lai, Guangcong Wang
+Abstract: ObjFiller-3D uses video editing models to achieve high-quality and consistent 3D object completion, outperforming previous methods in terms of reconstruction fidelity and practical deployment....
+URL: https://huggingface.co/papers/2508.18271
+PDF: https://arxiv.org/pdf/2508.18271.pdf
+Tags: 
+--------------------------------------------------
+Title: Demystifying Scientific Problem-Solving in LLMs by Probing Knowledge and
+  Reasoning
+Authors: Alan Li, Yixin Liu, Arpan Sarkar, Doug Downey, Arman Cohan
+Abstract: SciReas and SciReas-Pro benchmarks, along with KRUX framework, provide insights into the distinct roles of knowledge and reasoning in scientific tasks, highlighting critical bottlenecks and improvemen...
+URL: https://huggingface.co/papers/2508.19202
+PDF: https://arxiv.org/pdf/2508.19202.pdf
+Tags: 
+--------------------------------------------------
+Title: Unraveling the cognitive patterns of Large Language Models through
+  module communities
+Authors: Kushal Raj Bhandari, Pin-Yu Chen, Jianxi Gao
+Abstract: A network-based framework links cognitive skills, LLM architectures, and datasets, revealing unique emergent skill patterns in LLMs that benefit from dynamic, cross-regional interactions....
+URL: https://huggingface.co/papers/2508.18192
+PDF: https://arxiv.org/pdf/2508.18192.pdf
+Tags: 
+--------------------------------------------------"

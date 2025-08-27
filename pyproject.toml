@@ -1,0 +1,17 @@
+[project]
+name = "huggingface-daily-paper-mcp"
+version = "0.1.0"
+description = "A MCP server for fetching HuggingFace daily papers"
+requires-python = ">=3.10"
+dependencies = [
+    "beautifulsoup4>=4.13.5",
+    "lxml>=6.0.1",
+    "mcp>=1.13.1",
+    "requests>=2.32.5",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.1.0",
+]

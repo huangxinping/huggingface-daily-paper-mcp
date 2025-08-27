@@ -24,8 +24,8 @@ class HuggingFacePapersScraper:
             papers = self._parse_papers(response.text)
             
             if fetch_details and papers:
-                # 获取前5篇论文的详细信息，包括具体作者姓名
-                for i, paper in enumerate(papers[:5]):
+                # 获取所有论文的详细信息，包括具体作者姓名
+                for i, paper in enumerate(papers):
                     if paper.get('url'):
                         details = self._fetch_paper_details(paper['url'])
                         if details:

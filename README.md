@@ -5,11 +5,12 @@ A MCP (Model Context Protocol) server for fetching HuggingFace daily papers.
 ## Features
 
 - Fetch today's, yesterday's or specific date HuggingFace papers
-- Provides paper title, authors, abstract, tags and other details
-- Includes paper links and PDF download links
+- Provides paper title, authors, abstract, tags, votes, and submitted by info
+- Includes paper links and PDF download links  
 - Supports MCP tools and resource interfaces
+- ArXiv integration for complete author lists
 - Complete error handling and logging
-- Comprehensive test cases
+- Comprehensive test coverage
 
 ## Installation & Usage
 
@@ -52,7 +53,7 @@ uv run -m pytest test_mcp_server.py -v
 
 **Build Package**:
 ```bash
-uv run -m build
+uv build
 ```
 
 ## MCP Interface
@@ -111,16 +112,112 @@ huggingface-daily-paper-mcp/
 
 ## Example Output
 
+Single paper data structure:
+
 ```json
 {
-  "title": "Example Paper Title",
-  "authors": ["Author One", "Author Two"],
-  "abstract": "This is an example abstract...",
-  "tags": ["machine-learning", "nlp"],
-  "url": "https://huggingface.co/papers/example",
-  "pdf_url": "https://arxiv.org/pdf/example.pdf",
-  "scraped_at": "2024-01-01T12:00:00"
+  "title": "CMPhysBench: A Benchmark for Evaluating Large Language Models in Condensed Matter Physics",
+  "authors": ["Weida Wang", "Dongchen Huang", "Jiatong Li", "..."],
+  "abstract": "CMPhysBench evaluates LLMs in condensed matter physics using calculation problems...",
+  "tags": ["machine-learning", "physics"],
+  "url": "https://huggingface.co/papers/2508.18124",
+  "pdf_url": "https://arxiv.org/pdf/2508.18124.pdf",
+  "votes": 15,
+  "submitted_by": "researcher123",
+  "scraped_at": "2025-08-27T10:30:00.123456"
 }
+```
+
+MCP Tool output format:
+```
+Title: CMPhysBench: A Benchmark for Evaluating Large Language Models in Condensed Matter Physics
+Authors: Weida Wang, Dongchen Huang, Jiatong Li, Tengchao Yang, Ziyang Zheng...
+Abstract: CMPhysBench evaluates LLMs in condensed matter physics using calculation problems...
+URL: https://huggingface.co/papers/2508.18124
+PDF: https://arxiv.org/pdf/2508.18124.pdf
+Tags: machine-learning, physics
+Votes: 15
+Submitted by: researcher123
+--------------------------------------------------
+```
+
+## AI IDE/CLI Configuration
+
+### Claude Code (CLI)
+
+Add to your MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "huggingface-papers": {
+      "command": "uvx",
+      "args": ["huggingface-daily-paper-mcp"]
+    }
+  }
+}
+```
+
+### Cursor IDE
+
+Add to your `.cursorrules` or MCP settings:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "huggingface-papers": {
+        "command": "uvx",
+        "args": ["huggingface-daily-paper-mcp"],
+        "env": {}
+      }
+    }
+  }
+}
+```
+
+### Windsurf IDE
+
+Add to your Windsurf MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "huggingface-papers": {
+      "command": "uvx",
+      "args": ["huggingface-daily-paper-mcp"]
+    }
+  }
+}
+```
+
+### VS Code with Continue Extension
+
+Add to your `continue` configuration:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "huggingface-papers": {
+        "command": "uvx",
+        "args": ["huggingface-daily-paper-mcp"]
+      }
+    }
+  }
+}
+```
+
+### Other MCP-Compatible Tools
+
+For any MCP-compatible client, use:
+
+```bash
+# Command
+uvx huggingface-daily-paper-mcp
+
+# Or with Python path
+python -m main
 ```
 
 ## License

@@ -11,32 +11,48 @@ A MCP (Model Context Protocol) server for fetching HuggingFace daily papers.
 - Complete error handling and logging
 - Comprehensive test cases
 
-## Installation
+## Installation & Usage
 
-Install project dependencies using uv package manager:
+### Option 1: Direct execution with uvx (Recommended)
+
+Install and run directly using uvx:
 
 ```bash
+uvx huggingface-daily-paper-mcp
+```
+
+This will automatically install the package and its dependencies, then start the MCP server.
+
+### Option 2: Local development
+
+For local development, clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/huangxinping/huggingface-daily-paper-mcp.git
+cd huggingface-daily-paper-mcp
 uv sync
 ```
 
-## Usage
+### Local usage commands
 
-### Run as MCP Server
-
+**Run as MCP Server (for development)**:
 ```bash
 python main.py
 ```
 
-### Test Scraper Function
-
+**Test Scraper Function**:
 ```bash
 python scraper.py
 ```
 
-### Run Tests
-
+**Run Tests**:
 ```bash
 uv run -m pytest test_mcp_server.py -v
+```
+
+**Build Package**:
+```bash
+uv run -m build
 ```
 
 ## MCP Interface

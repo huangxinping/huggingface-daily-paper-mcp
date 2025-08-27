@@ -218,5 +218,10 @@ async def main():
         )
 
 
-if __name__ == "__main__":
+def cli():
+    """Command line interface entry point for uvx."""
     asyncio.run(main())
+
+
+if __name__ == "__main__":
+    cli()

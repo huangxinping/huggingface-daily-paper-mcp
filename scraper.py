@@ -119,22 +119,8 @@ class HuggingFacePapersScraper:
             # 提取摘要（列表页面通常没有）
             abstract = "Abstract not available in listing page"
             
-            # 提取标签
-            tags = []
-            # 查找标签相关的元素
-            tag_elements = card.find_all('span', class_=lambda x: x and ('tag' in x.lower() or 'badge' in x.lower()))
-            for elem in tag_elements:
-                tag_text = elem.get_text(strip=True)
-                if tag_text and len(tag_text) < 50:  # 过滤掉太长的文本
-                    tags.append(tag_text)
-            
-            # 备用方案：查找小标签样式的文本
-            if not tags:
-                small_elements = card.find_all(['span', 'div'], class_=lambda x: x and any(cls in x.lower() for cls in ['text-xs', 'text-sm', 'small', 'chip']))
-                for elem in small_elements:
-                    tag_text = elem.get_text(strip=True)
-                    if tag_text and 5 <= len(tag_text) <= 30 and not any(skip in tag_text.lower() for skip in ['author', 'submit', 'vote', 'view', 'download']):
-                        tags.append(tag_text)
+            # 提取摘要（列表页面通常没有）
+            abstract = "Abstract not available in listing page"
             
             # 提取PDF链接（需要从详情页获取）
             pdf_link = ""
@@ -225,7 +211,6 @@ class HuggingFacePapersScraper:
                 'title': title,
                 'authors': [authors_count] if authors_count else [],
                 'abstract': abstract,
-                'tags': tags,
                 'url': paper_url,
                 'pdf_url': pdf_link,
                 'votes': vote_count,
@@ -327,28 +312,63 @@ class HuggingFacePapersScraper:
 
 
 def test_scraper():
+    """测试爬虫功能的完整测试函数"""
     scraper = HuggingFacePapersScraper()
-    print("=== 测试基本功能 ===")
+    
+    print("=== 测试今天论文获取 ===")
     papers = scraper.get_today_papers()
-    print(f"Found {len(papers)} papers")
+    print(f"Found {len(papers)} papers for today")
     for paper in papers[:3]:
         print(f"Title: {paper['title']}")
         print(f"Authors: {', '.join(paper['authors']) if paper['authors'] else 'No authors info'}")
         print(f"Abstract: {paper['abstract'][:100]}...")
         print(f"URL: {paper['url']}")
+        print(f"PDF URL: {paper['pdf_url']}")
         print(f"Votes: {paper['votes']}")
         print(f"Submitted by: {paper['submitted_by']}")
+        print(f"Scraped by: {paper['scraped_at']}")
         print("-" * 50)
-    
-    print("\n=== 测试详细信息获取 ===")
-    detailed_papers = scraper.get_today_papers(fetch_details=True)
-    if detailed_papers:
-        paper = detailed_papers[0]
-        print(f"Enhanced paper info:")
+        
+    print("\n=== 测试昨天论文获取 ===")
+    yesterday_papers = scraper.get_yesterday_papers()
+    print(f"Found {len(yesterday_papers)} papers for yesterday")
+    for paper in yesterday_papers[:2]:
         print(f"Title: {paper['title']}")
         print(f"Authors: {', '.join(paper['authors']) if paper['authors'] else 'No authors info'}")
-        print(f"Abstract: {paper['abstract'][:300]}...")
+        print(f"Abstract: {paper['abstract'][:100]}...")
+        print(f"URL: {paper['url']}")
         print(f"PDF URL: {paper['pdf_url']}")
+        print(f"Votes: {paper['votes']}")
+        print(f"Submitted by: {paper['submitted_by']}")
+        print(f"Scraped by: {paper['scraped_at']}")
+        print("-" * 50)
+    
+    print("\n=== 测试指定日期论文获取（前天） ===")
+    # 获取前天的日期
+    day_before_yesterday = (datetime.now() - timedelta(days=2)).strftime("%Y-%m-%d")
+    specific_date_papers = scraper.get_papers_by_date(day_before_yesterday)
+    print(f"Found {len(specific_date_papers)} papers for {day_before_yesterday}")
+    for paper in specific_date_papers[:2]:
+        print(f"Title: {paper['title']}")
+        print(f"Authors: {', '.join(paper['authors']) if paper['authors'] else 'No authors info'}")
+        print(f"Abstract: {paper['abstract'][:100]}...")
+        print(f"URL: {paper['url']}")
+        print(f"PDF URL: {paper['pdf_url']}")
+        print(f"Votes: {paper['votes']}")
+        print(f"Submitted by: {paper['submitted_by']}")
+        print(f"Scraped by: {paper['scraped_at']}")
+        print("-" * 50)
+    
+    print("\n=== 测试无详细信息获取 ===")
+    simple_papers = scraper.get_today_papers(fetch_details=False)
+    if simple_papers:
+        paper = simple_papers[0]
+        print(f"Title: {paper['title']}")
+        print(f"URL: {paper['url']}")
+        print(f"Votes: {paper['votes']}")
+        print(f"Submitted by: {paper['submitted_by']}")
+        print(f"Scraped by: {paper['scraped_at']}")
+        print("-" * 50)
 
 
 if __name__ == "__main__":

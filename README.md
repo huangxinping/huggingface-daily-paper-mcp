@@ -119,7 +119,6 @@ Single paper data structure:
   "title": "CMPhysBench: A Benchmark for Evaluating Large Language Models in Condensed Matter Physics",
   "authors": ["Weida Wang", "Dongchen Huang", "Jiatong Li", "..."],
   "abstract": "CMPhysBench evaluates LLMs in condensed matter physics using calculation problems...",
-  "tags": ["machine-learning", "physics"],
   "url": "https://huggingface.co/papers/2508.18124",
   "pdf_url": "https://arxiv.org/pdf/2508.18124.pdf",
   "votes": 15,
@@ -135,7 +134,6 @@ Authors: Weida Wang, Dongchen Huang, Jiatong Li, Tengchao Yang, Ziyang Zheng...
 Abstract: CMPhysBench evaluates LLMs in condensed matter physics using calculation problems...
 URL: https://huggingface.co/papers/2508.18124
 PDF: https://arxiv.org/pdf/2508.18124.pdf
-Tags: machine-learning, physics
 Votes: 15
 Submitted by: researcher123
 --------------------------------------------------

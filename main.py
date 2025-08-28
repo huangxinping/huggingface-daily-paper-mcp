@@ -122,7 +122,6 @@ async def handle_call_tool(
                              f"Abstract: {paper['abstract']}\n"
                              f"URL: {paper['url']}\n"
                              f"PDF: {paper['pdf_url']}\n"
-                             f"Tags: {', '.join(paper['tags'])}\n"
                              f"Votes: {paper['votes']}\n"
                              f"Submitted by: {paper['submitted_by']}\n"
                              + "-" * 50
@@ -153,7 +152,6 @@ async def handle_call_tool(
                              f"Abstract: {paper['abstract']}\n" 
                              f"URL: {paper['url']}\n"
                              f"PDF: {paper['pdf_url']}\n"
-                             f"Tags: {', '.join(paper['tags'])}\n"
                              f"Votes: {paper['votes']}\n"
                              f"Submitted by: {paper['submitted_by']}\n"
                              + "-" * 50
@@ -184,7 +182,6 @@ async def handle_call_tool(
                              f"Abstract: {paper['abstract']}\n"
                              f"URL: {paper['url']}\n" 
                              f"PDF: {paper['pdf_url']}\n"
-                             f"Tags: {', '.join(paper['tags'])}\n"
                              f"Votes: {paper['votes']}\n"
                              f"Submitted by: {paper['submitted_by']}\n"
                              + "-" * 50
@@ -215,7 +212,7 @@ async def main():
             write_stream, 
             InitializationOptions(
                 server_name="huggingface-daily-papers",
-                server_version="0.1.3",
+                server_version="0.1.4",
                 capabilities=server.get_capabilities(
                     notification_options=NotificationOptions(),
                     experimental_capabilities={},
